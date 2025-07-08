@@ -1,0 +1,18 @@
+#wnv parameters
+protocol: "amplicon"
+platform: "illumina"
+genomes:
+  WNV_REF:
+    fasta: "reference/west_nile_virus.fasta"
+    gff: "reference/west_nile_virus.gff"
+    primer_bed: "reference/WNVic.primers_NC_009942_1.bed"
+    primer_fasta: "reference/wnv_primers.fasta"
+    bowtie2_index: "reference/west_nile_virus.fasta.fai"
+variant_caller: "ivar"
+consensus_caller: "ivar"
+skip_assembly: true
+skip_pangolin: true
+skip_nextclade: true
+skip_kraken2: true
+schema_ignore_params: "primers_fasta,primer_bed,genome_gff,genome_bed,genomes"
+skip_variants_filtering = true
