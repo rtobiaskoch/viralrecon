@@ -1,0 +1,3117 @@
+[33mNextflow 25.04.6 is available - Please consider updating your version to it[m
+
+ N E X T F L O W   ~  version 24.04.4
+
+Launching `https://github.com/nf-core/viralrecon` [nice_stone] DSL2 - revision: 3731dd3a32 [2.6.0]
+
+
+
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/viralrecon v2.6.0-g3731dd3
+------------------------------------------------------
+Core Nextflow options
+  revision       : 2.6.0
+  runName        : nice_stone
+  containerEngine: singularity
+  launchDir      : /projects/rtk24@colostate.edu/proj_bioinformatics/nextflow_pipelines/viralrecon
+  workDir        : /scratch/alpine/rtk24@colostate.edu
+  projectDir     : /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon
+  userName       : rtk24@colostate.edu
+  profile        : singularity
+  configFiles    : /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/nextflow.config, /projects/rtk24@colostate.edu/proj_bioinformatics/nextflow_pipelines/viralrecon/nextflow.config, /projects/rtk24@colostate.edu/proj_bioinformatics/nextflow_pipelines/viralrecon/conf/wnv.config
+
+Input/output options
+  input          : input/wnv_kapa_test.csv
+  platform       : illumina
+  protocol       : amplicon
+  outdir         : wnv-s_21-22
+
+Reference genome options
+  genome         : WNV_REF
+  fasta          : reference/west_nile_virus.fasta
+  gff            : reference/west_nile_virus.gff
+  primer_bed     : reference/WNVic.primers_NC_009942_1.bed
+
+Nanopore/Illumina options
+  skip_nextclade : true
+
+Illumina QC, read trimming and filtering options
+  skip_kraken2   : true
+
+Illumina variant calling options
+  variant_caller : ivar
+
+Illumina de novo assembly options
+  assemblers     : spades,unicycler,minia
+  skip_assembly  : true
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+------------------------------------------------------
+If you use nf-core/viralrecon for your analysis please cite:
+
+* The pipeline
+  https://doi.org/10.5281/zenodo.3901628
+
+* The nf-core framework
+  https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+  https://github.com/nf-core/viralrecon/blob/master/CITATIONS.md
+------------------------------------------------------
+WARN: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Multiple config files detected!
+  Please provide pipeline parameters via the CLI or Nextflow '-params-file' option.
+  Custom config files including those provided by the '-c' Nextflow option can be
+  used to provide any configuration except for parameters.
+
+  Docs: https://nf-co.re/usage/configuration#custom-configuration-files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+WARN: Found unexpected parameters:
+* --amplicon_bed: reference/WNVic.primers_NC_009942_1.bed
+* --amplicon_fasta: reference/wnv_primers.fasta
+* --genomes: [NC_045512.2:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_045512.2/GCF_009858895.2_ASM985889v3_genomic.200409.fna.gz, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_045512.2/GCF_009858895.2_ASM985889v3_genomic.200409.gff.gz, nextclade_dataset:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/nextclade_sars-cov-2_MN908947_2022-06-14T12_00_00Z.tar.gz, nextclade_dataset_v3pl:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/nextclade_sars-cov-2_MN908947_2024-10-17--16_48_48Z.tar.gz, nextclade_dataset_name:sars-cov-2, nextclade_dataset_reference:MN908947, nextclade_dataset_tag:2022-06-14T12:00:00Z, nextclade_dataset_tag_v3pl:2024-10-17--16-48-48Z], MN908947.3:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.fna.gz, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, nextclade_dataset:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/nextclade_sars-cov-2_MN908947_2022-06-14T12_00_00Z.tar.gz, nextclade_dataset_v3pl:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/nextclade_sars-cov-2_MN908947_2024-10-17--16_48_48Z.tar.gz, nextclade_dataset_name:sars-cov-2, nextclade_dataset_reference:MN908947, nextclade_dataset_tag:2022-06-14T12:00:00Z, nextclade_dataset_tag_v3pl:2024-10-17--16-48-48Z, primer_sets:[artic:[1:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V1/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V1/nCoV-2019.primer.bed, scheme:nCoV-2019], 2:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V2/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V2/nCoV-2019.primer.bed, scheme:nCoV-2019], 3:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V3/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V3/nCoV-2019.primer.bed, scheme:nCoV-2019], 4:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V4/SARS-CoV-2.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V4/SARS-CoV-2.scheme.bed, scheme:SARS-CoV-2], 4.1:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V4.1/SARS-CoV-2.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V4.1/SARS-CoV-2.scheme.bed, scheme:SARS-CoV-2], 5.3.2:[fasta:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V5.3.2/SARS-CoV-2.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/artic-network/artic-ncov2019/raw/master/primer_schemes/nCoV-2019/V5.3.2/SARS-CoV-2.scheme.bed, scheme:SARS-CoV-2], 1200:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/artic/nCoV-2019/V1200/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/artic/nCoV-2019/V1200/nCoV-2019.bed, scheme:nCoV-2019]], NEB:[vss1:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/artic/nCoV-2019/V1200/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/NEB/nCov-2019/vss1/neb_vss1.primer.bed, scheme:nCoV-2019], vsl1:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/artic/nCoV-2019/V1200/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/NEB/nCov-2019/vsl1/neb_vsl1.primer.bed, scheme:nCoV-2019]], atoplex:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MN908947.3/primer_schemes/artic/nCoV-2019/V1200/nCoV-2019.reference.fasta, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_045512.2/GCF_009858895.2_ASM985889v3_genomic.200409.gff.gz, primer_bed:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_045512.2/amplicon/nCoV-2019.atoplex.V1.bed, scheme:nCoV-2019]]], NC_063383.1:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_063383.1/GCF_014621545.1_ASM1462154v1_genomic.220824.fna.gz, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_063383.1/GCF_014621545.1_ASM1462154v1_genomic.220824.gff.gz, nextclade_dataset:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_063383.1/nextclade_hMPXV_NC_063383.1_2022-08-19T12_00_00Z.tar.gz, nextclade_dataset_v3pl:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/NC_063383.1/nextclade_hMPXV_NC_063383.1_2024-08-27--21-28-04Z.tar.gz, nextclade_dataset_name:hMPXV, nextclade_dataset_reference:NC_063383.1, nextclade_dataset_tag:2022-08-19T12:00:00Z, nextclade_dataset_tag_v3pl:2024-08-27--21-28-04Z], ON563414.3:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/ON563414.3/GCA_023516015.3_ASM2351601v1_genomic.220824.fna.gz, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/ON563414.3/GCA_023516015.3_ASM2351601v1_genomic.220824.gff.gz], MT903344.1:[fasta:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MT903344.1/GCA_014621585.1_ASM1462158v1_genomic.220824.fna.gz, gff:https://github.com/nf-core/test-datasets/raw/viralrecon/genome/MT903344.1/GCA_014621585.1_ASM1462158v1_genomic.220824.gff.gz], WNV_REF:[fasta:reference/west_nile_virus.fasta, gff:reference/west_nile_virus.gff, primer_bed:reference/WNVic.primers_NC_009942_1.bed, primer_fasta:reference/wnv_primers.fasta]]
+- Ignore this warning: params.schema_ignore_params = "amplicon_bed,amplicon_fasta,genomes" 
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+[-        ] NFC…UT_CHECK:SAMPLESHEET_CHECK -
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+[-        ] NFC…UT_CHECK:SAMPLESHEET_CHECK -
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 9 more processes waiting for tasks…
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+[-        ] NFC…UT_CHECK:SAMPLESHEET_CHECK -
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 23 more processes waiting for tasks…
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+[-        ] NFC…UT_CHECK:SAMPLESHEET_CHECK -
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 30 more processes waiting for tasks…
+
+[-        ] NFC…ENOME:CUSTOM_GETCHROMSIZES -
+[-        ] NFC…RE_GENOME:COLLAPSE_PRIMERS -
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD -
+[-        ] NFC…REPARE_GENOME:SNPEFF_BUILD -
+[-        ] NFC…UT_CHECK:SAMPLESHEET_CHECK -
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (4)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 0 of 1
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 0 of 1
+[-        ] NFC…EPARE_GENOME:BOWTIE2_BUILD | 0 of 1
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 0 of 1
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (5)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 0 of 1
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW -
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP -
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (5)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[-        ] NFC…IM_FASTP_FASTQC:FASTQC_RAW | 0 of 2
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP | 0 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (7)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 0 of 1
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[06/60f80b] NFC…STQC:FASTQC_RAW (CSU17035) | 0 of 2
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP | 0 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (7)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[06/60f80b] NFC…STQC:FASTQC_RAW (CSU17035) | 0 of 2
+[-        ] NFC…TQ_TRIM_FASTP_FASTQC:FASTP | 0 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (8)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[06/60f80b] NFC…STQC:FASTQC_RAW (CSU17035) | 1 of 2
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 0 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (9)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[19/71246f] NFC…TP_FASTQC:FASTP (CSU17035) | 0 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (9)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[19/71246f] NFC…TP_FASTQC:FASTP (CSU17035) | 1 of 2
+[-        ] NFC…M_FASTP_FASTQC:FASTQC_TRIM -
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (10)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[19/71246f] NFC…TP_FASTQC:FASTP (CSU17035) | 1 of 2
+[f2/d282bf] NFC…TQC:FASTQC_TRIM (CSU17035) | 0 of 1
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN | 0 of 1
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (10)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f2/d282bf] NFC…TQC:FASTQC_TRIM (CSU17035) | 0 of 2
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN | 0 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (11)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 0 of 2
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN | 0 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (11)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f2/d282bf] NFC…TQC:FASTQC_TRIM (CSU17035) | 1 of 2
+[-        ] NFC…LIGN_BOWTIE2:BOWTIE2_ALIGN | 0 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (12)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[96/9c6f7d] NFC…2:BOWTIE2_ALIGN (CSU17035) | 0 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (13)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[96/9c6f7d] NFC…2:BOWTIE2_ALIGN (CSU17035) | 1 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT | 0 of 1
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (15)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[3f/0a2027] NFC…S:SAMTOOLS_SORT (CSU17060) | 0 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (15)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[3f/0a2027] NFC…S:SAMTOOLS_SORT (CSU17060) | 0 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (16)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[3f/0a2027] NFC…S:SAMTOOLS_SORT (CSU17060) | 1 of 2
+[27/93d136] NFC…:SAMTOOLS_INDEX (CSU17060) | 0 of 1
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (17)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 0 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (17)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[27/93d136] NFC…:SAMTOOLS_INDEX (CSU17060) | 1 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS -
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (23)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 0 of 2
+[53/d01960] NFC…MTOOLS_FLAGSTAT (CSU17060) | 0 of 2
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 0 of 2
+[-        ] NFC…RIM_PRIMERS_IVAR:IVAR_TRIM -
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (24)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 0 of 1
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (25)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[91/63054d] NFC…_IVAR:IVAR_TRIM (CSU17035) | 0 of 2
+[-        ] NFC…ATS_SAMTOOLS:SAMTOOLS_SORT -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (26)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[91/63054d] NFC…_IVAR:IVAR_TRIM (CSU17035) | 1 of 2
+[d2/1234e6] NFC…S:SAMTOOLS_SORT (CSU17035) | 0 of 1
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_INDEX -
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+Plus 31 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (29)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[d2/1234e6] NFC…S:SAMTOOLS_SORT (CSU17035) | 1 of 2
+[36/4359ee] NFC…:SAMTOOLS_INDEX (CSU17035) | 0 of 1
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 0 of 1
+Plus 30 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (29)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[d2/1234e6] NFC…S:SAMTOOLS_SORT (CSU17035) | 1 of 2
+[36/4359ee] NFC…:SAMTOOLS_INDEX (CSU17035) | 0 of 1
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 0 of 1
+Plus 30 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (31)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[36/4359ee] NFC…:SAMTOOLS_INDEX (CSU17035) | 1 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 0 of 1
+[-        ] NFC…N:ILLUMINA:MOSDEPTH_GENOME | 0 of 1
+[d1/99d172] NFC…SDEPTH_AMPLICON (CSU17035) | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 0 of 1
+Plus 27 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (31)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[36/4359ee] NFC…:SAMTOOLS_INDEX (CSU17035) | 1 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 0 of 1
+[-        ] NFC…N:ILLUMINA:MOSDEPTH_GENOME | 0 of 1
+[d1/99d172] NFC…SDEPTH_AMPLICON (CSU17035) | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 0 of 2
+Plus 27 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (33)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 1 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 0 of 1
+[4b/481a5c] NFC…MOSDEPTH_GENOME (CSU17035) | 0 of 1
+[d1/99d172] NFC…SDEPTH_AMPLICON (CSU17035) | 1 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 0 of 2
+Plus 27 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (35)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 1 of 2
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS -
+[-        ] NFC…SAMTOOLS:SAMTOOLS_FLAGSTAT -
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 0 of 1
+[4b/481a5c] NFC…MOSDEPTH_GENOME (CSU17035) | 0 of 1
+[d1/99d172] NFC…SDEPTH_AMPLICON (CSU17035) | 1 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 26 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (38)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[-        ] NFC…TS_SAMTOOLS:SAMTOOLS_STATS | 0 of 2
+[af/85f56a] NFC…MTOOLS_FLAGSTAT (CSU17035) | 0 of 2
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS | 0 of 2
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[4b/481a5c] NFC…MOSDEPTH_GENOME (CSU17035) | 1 of 2
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 1 of 2
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 25 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (40)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[2f/670420] NFC…:SAMTOOLS_STATS (CSU17060) | 0 of 2
+[af/85f56a] NFC…MTOOLS_FLAGSTAT (CSU17035) | 1 of 2
+[-        ] NFC…SAMTOOLS:SAMTOOLS_IDXSTATS | 0 of 2
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 1 of 2
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[-        ] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 24 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (44)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 0 of 2
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 1 of 2
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 0 of 2
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[-        ] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[-        ] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (44)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[2f/670420] NFC…:SAMTOOLS_STATS (CSU17060) | 1 of 2
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 1 of 2
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 0 of 2
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[-        ] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[-        ] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (44)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[2f/670420] NFC…:SAMTOOLS_STATS (CSU17060) | 1 of 2
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[6b/b69605] NFC…MTOOLS_IDXSTATS (CSU17060) | 1 of 2
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[-        ] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[-        ] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (45)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[-        ] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[04/1ae4f9] NFC…R:IVAR_VARIANTS (CSU17035) | 1 of 2
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 1
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (46)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 0 of 2
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (47)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 0 of 2
+Plus 23 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (47)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 0 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 1 of 2
+[-        ] NFC…ARIANTS_IVAR:BCFTOOLS_SORT | 0 of 1
+Plus 22 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (47)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 1 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[16/040e67] NFC…VARIANTS_TO_VCF (CSU17035) | 1 of 2
+[-        ] NFC…ARIANTS_IVAR:BCFTOOLS_SORT | 0 of 1
+Plus 22 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (47)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[84/c54ddd] NFC…MULTIPLEMETRICS (CSU17035) | 1 of 2
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[-        ] NFC…ARIANTS_IVAR:BCFTOOLS_SORT | 0 of 2
+Plus 22 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (47)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 0 of 1
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[-        ] NFC…ARIANTS_IVAR:BCFTOOLS_SORT | 0 of 2
+Plus 22 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (48)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 0 of 1
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[fd/a27e9f] NFC…R:BCFTOOLS_SORT (CSU17035) | 0 of 2
+Plus 22 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (51)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[fd/a27e9f] NFC…R:BCFTOOLS_SORT (CSU17035) | 1 of 2
+[bd/11ab87] NFC…ATS:TABIX_TABIX (CSU17035) | 0 of 1
+[-        ] NFC…:SNPEFF_SNPSIFT:SNPEFF_ANN | 0 of 1
+[8b/dada58] NFC…BCFTOOLS_FILTER (CSU17035) | 0 of 1
+Plus 19 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (51)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[fd/a27e9f] NFC…R:BCFTOOLS_SORT (CSU17035) | 1 of 2
+[bd/11ab87] NFC…ATS:TABIX_TABIX (CSU17035) | 0 of 1
+[-        ] NFC…:SNPEFF_SNPSIFT:SNPEFF_ANN | 0 of 1
+[8b/dada58] NFC…BCFTOOLS_FILTER (CSU17035) | 0 of 1
+Plus 19 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (54)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 0 of 2
+[20/56ffa9] NFC…SIFT:SNPEFF_ANN (CSU17035) | 0 of 2
+[8b/dada58] NFC…BCFTOOLS_FILTER (CSU17035) | 1 of 2
+[-        ] NFC…ENSUS_BCFTOOLS:TABIX_TABIX | 0 of 1
+[-        ] NFC…SUS_BCFTOOLS:MAKE_BED_MASK | 0 of 1
+Plus 17 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (56)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[bd/11ab87] NFC…ATS:TABIX_TABIX (CSU17035) | 1 of 2
+[-        ] NFC…TABIX_STATS:BCFTOOLS_STATS | 0 of 1
+[20/56ffa9] NFC…SIFT:SNPEFF_ANN (CSU17035) | 0 of 2
+[8b/dada58] NFC…BCFTOOLS_FILTER (CSU17035) | 1 of 2
+[8d/2b835e] NFC…OLS:TABIX_TABIX (CSU17035) | 0 of 1
+[f2/e34376] NFC…S:MAKE_BED_MASK (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 1
+Plus 15 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (59)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 0 of 2
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[8d/2b835e] NFC…OLS:TABIX_TABIX (CSU17035) | 1 of 1
+[f2/e34376] NFC…S:MAKE_BED_MASK (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 15 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (59)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 0 of 2
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[8d/2b835e] NFC…OLS:TABIX_TABIX (CSU17035) | 1 of 2
+[f2/e34376] NFC…S:MAKE_BED_MASK (CSU17035) | 0 of 2
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 15 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (62)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 1 of 2
+[f2/e34376] NFC…S:MAKE_BED_MASK (CSU17035) | 1 of 2
+[9b/a69d69] NFC…:BEDTOOLS_MERGE (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 13 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (62)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[f2/e34376] NFC…S:MAKE_BED_MASK (CSU17035) | 1 of 2
+[9b/a69d69] NFC…:BEDTOOLS_MERGE (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 13 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (62)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[9b/a69d69] NFC…:BEDTOOLS_MERGE (CSU17035) | 0 of 2
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 13 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (63)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 1 of 2
+[-        ] NFC…CFTOOLS:BEDTOOLS_MASKFASTA | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 12 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (63)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 1 of 2
+[-        ] NFC…CFTOOLS:BEDTOOLS_MASKFASTA | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 12 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (64)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 1 of 2
+[39/38ea20] NFC…TOOLS_MASKFASTA (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 12 more processes waiting for tasks…
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+WARN: There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:TABIX_TABIX
+WARN: There's no process matching config selector: .*:.*:VARIANTS_BCFTOOLS:.*:BCFTOOLS_STATS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_SCAFFOLDS
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:GUNZIP_GFA
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:BANDAGE_IMAGE
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:BLAST_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:FILTER_BLASTN
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:QUAST
+WARN: There's no process matching config selector: .*:.*:ASSEMBLY_SPADES:.*:ABACAS
+
+executor >  local (64)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 1 of 2
+[39/38ea20] NFC…TOOLS_MASKFASTA (CSU17035) | 0 of 1
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 12 more processes waiting for tasks…
+
+
+
+
+
+
+
+
+
+
+
+
+executor >  local (64)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[39/38ea20] NFC…TOOLS_MASKFASTA (CSU17035) | 0 of 2
+[-        ] NFC…_LONG_TABLE:BCFTOOLS_QUERY | 0 of 2
+Plus 12 more processes waiting for tasks…
+
+
+
+
+
+
+
+
+
+
+
+
+executor >  local (66)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[20/56ffa9] NFC…SIFT:SNPEFF_ANN (CSU17035) | 1 of 2
+[-        ] NFC…IP_TABIX_STATS:TABIX_BGZIP | 0 of 1
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 0 of 2
+[75/c4ce07] NFC…:BCFTOOLS_QUERY (CSU17035) | 0 of 2
+Plus 11 more processes waiting for tasks…
+
+executor >  local (69)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 0 of 2
+[-        ] NFC…AR:VARIANTS_QC:ASCIIGENOME | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 0 of 2
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 0 of 2
+Plus 11 more processes waiting for tasks…
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 0 of 2
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 0 of 2
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 0 of 2
+Plus 11 more processes waiting for tasks…
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[5d/508c4f] NFC…ATS:TABIX_BGZIP (CSU17035) | 1 of 2
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 0 of 2
+[75/c4ce07] NFC…:BCFTOOLS_QUERY (CSU17035) | 1 of 2, failed: 1
+Plus 11 more processes waiting for tasks…
+Execution cancelled -- Finishing pending tasks before exit
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 2 of 2 ✔
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[39/38ea20] NFC…TOOLS_MASKFASTA (CSU17035) | 1 of 2
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 2 of 2, failed: 2 ✘
+Plus 11 more processes waiting for tasks…
+Execution cancelled -- Finishing pending tasks before exit
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 2 of 2 ✔
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 0 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 2 of 2 ✔
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 2 of 2, failed: 2 ✘
+Plus 11 more processes waiting for tasks…
+Execution cancelled -- Finishing pending tasks before exit
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 2 of 2 ✔
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 1 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 2 of 2 ✔
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 2 of 2, failed: 2 ✘
+Plus 11 more processes waiting for tasks…
+
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 2 of 2 ✔
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 1 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 2 of 2 ✔
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 2 of 2, failed: 2 ✘
+Plus 11 more processes waiting for tasks…
+-[nf-core/viralrecon] 2/2 samples passed Bowtie2 1000 mapped read threshold:
+    18572: CSU17060
+    5700: CSU17035
+-
+-[nf-core/viralrecon] Pipeline completed with errors-
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+
+executor >  local (70)
+[46/79f1cd] NFC…ES (west_nile_virus.fasta) | 1 of 1 ✔
+[16/73b03a] NFC…c.primers_NC_009942_1.bed) | 1 of 1 ✔
+[8d/198555] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[49/ca8607] NFC…LD (west_nile_virus.fasta) | 1 of 1 ✔
+[ee/02cd6c] NFC…_CHECK (wnv_kapa_test.csv) | 1 of 1 ✔
+[-        ] NFC…ALRECON:ILLUMINA:CAT_FASTQ -
+[47/dfb1c9] NFC…STQC:FASTQC_RAW (CSU17060) | 2 of 2 ✔
+[57/65d730] NFC…TP_FASTQC:FASTP (CSU17060) | 2 of 2 ✔
+[f5/8cfe31] NFC…TQC:FASTQC_TRIM (CSU17060) | 2 of 2 ✔
+[f6/04aafb] NFC…2:BOWTIE2_ALIGN (CSU17060) | 2 of 2 ✔
+[ba/8a29c8] NFC…S:SAMTOOLS_SORT (CSU17035) | 2 of 2 ✔
+[81/de8374] NFC…:SAMTOOLS_INDEX (CSU17035) | 2 of 2 ✔
+[9f/c2cf55] NFC…:SAMTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[6f/813219] NFC…MTOOLS_FLAGSTAT (CSU17035) | 2 of 2 ✔
+[37/77065e] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[b4/2b3ea6] NFC…_IVAR:IVAR_TRIM (CSU17060) | 2 of 2 ✔
+[77/0d6ccb] NFC…S:SAMTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[9f/a6e83c] NFC…:SAMTOOLS_INDEX (CSU17060) | 2 of 2 ✔
+[54/a9bded] NFC…:SAMTOOLS_STATS (CSU17035) | 2 of 2 ✔
+[f7/658c25] NFC…MTOOLS_FLAGSTAT (CSU17060) | 2 of 2 ✔
+[0b/ba6d74] NFC…MTOOLS_IDXSTATS (CSU17035) | 2 of 2 ✔
+[42/880e4a] NFC…MULTIPLEMETRICS (CSU17060) | 2 of 2 ✔
+[6e/21490e] NFC…MOSDEPTH_GENOME (CSU17060) | 2 of 2 ✔
+[ed/e0f370] NFC…OT_MOSDEPTH_REGIONS_GENOME | 1 of 1 ✔
+[5f/6a0dd1] NFC…SDEPTH_AMPLICON (CSU17060) | 2 of 2 ✔
+[cf/be9225] NFC…_MOSDEPTH_REGIONS_AMPLICON | 1 of 1 ✔
+[1f/6bebae] NFC…R:IVAR_VARIANTS (CSU17060) | 2 of 2 ✔
+[6c/dddadd] NFC…VARIANTS_TO_VCF (CSU17060) | 2 of 2 ✔
+[88/d3f085] NFC…R:BCFTOOLS_SORT (CSU17060) | 2 of 2 ✔
+[75/3c50c0] NFC…ATS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[0f/1f827c] NFC…:BCFTOOLS_STATS (CSU17060) | 2 of 2 ✔
+[5b/3f7cb7] NFC…SIFT:SNPEFF_ANN (CSU17060) | 2 of 2 ✔
+[d9/446bea] NFC…ATS:TABIX_BGZIP (CSU17060) | 2 of 2 ✔
+[dc/f3a106] NFC…_QC:ASCIIGENOME (CSU17035) | 1 of 2
+[9f/4c2a98] NFC…BCFTOOLS_FILTER (CSU17060) | 2 of 2 ✔
+[95/87b2ef] NFC…OLS:TABIX_TABIX (CSU17060) | 2 of 2 ✔
+[68/ebc849] NFC…S:MAKE_BED_MASK (CSU17060) | 2 of 2 ✔
+[89/46406c] NFC…:BEDTOOLS_MERGE (CSU17060) | 2 of 2 ✔
+[30/0a8c10] NFC…TOOLS_MASKFASTA (CSU17060) | 2 of 2 ✔
+[37/f390f0] NFC…:BCFTOOLS_QUERY (CSU17060) | 2 of 2, failed: 2 ✘
+Plus 11 more processes waiting for tasks…
+-[nf-core/viralrecon] 2/2 samples passed Bowtie2 1000 mapped read threshold:
+    18572: CSU17060
+    5700: CSU17035
+-
+-[nf-core/viralrecon] Pipeline completed with errors-
+ERROR ~ Error executing process > 'NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)'
+
+Caused by:
+  Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)` terminated with an error exit status (255)
+
+
+Command executed:
+
+  bcftools query \
+      --output CSU17035.bcftools_query.txt \
+       \
+       \
+       \
+      -H -f '%CHROM\t%POS\t%REF\t%ALT\t%FILTER\t[%DP\t]\t[%AD\t]\n' \
+      CSU17035.vcf.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY":
+      bcftools: $(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*$//')
+  END_VERSIONS
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Error: no such tag defined in the VCF header: FORMAT/AD
+
+Work dir:
+  /scratch/alpine/rtk24@colostate.edu/75/c4ce07053bff3f98b3089503fa1f06
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+

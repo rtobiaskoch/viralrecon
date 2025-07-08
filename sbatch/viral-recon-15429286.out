@@ -1,0 +1,15 @@
+[33mNextflow 25.04.6 is available - Please consider updating your version to it[m
+
+ N E X T F L O W   ~  version 24.04.4
+
+ERROR ~ Unable to parse config file: '/projects/rtk24@colostate.edu/proj_bioinformatics/nextflow_pipelines/viralrecon/conf/wnv.config'
+
+  Compile failed for sources FixedSetSources[name='/groovy/script/Script84518542D0DAEB5917652ED4A6169601/_nf_config_873ee47c']. Cause: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+  /groovy/script/Script84518542D0DAEB5917652ED4A6169601/_nf_config_873ee47c: 34: Unexpected input: '}' @ line 34, column 1.
+     }
+     ^
+  
+  1 error
+
+
+ -- Check '.nextflow.log' file for details
