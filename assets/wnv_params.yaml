@@ -15,4 +15,4 @@ skip_pangolin: true
 skip_nextclade: true
 skip_kraken2: true
 schema_ignore_params: "primers_fasta,primer_bed,genome_gff,genome_bed,genomes"
-skip_variants_filtering = true
+skip_variants_filtering: true
