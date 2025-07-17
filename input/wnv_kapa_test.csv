@@ -1,0 +1,3 @@
+sample,fastq_1,fastq_2
+CSU17060,/projects/rtk24@colostate.edu/proj_bioinformatics/raw_reads/wnv-s_21&22_R1.1__2530EBE__/Fastq/CSU17060_S38_L001_R1_001.fastq.gz,/projects/rtk24@colostate.edu/proj_bioinformatics/raw_reads/wnv-s_21&22_R1.1__2530EBE__/Fastq/CSU17060_S38_L001_R2_001.fastq.gz
+CSU17035,/projects/rtk24@colostate.edu/proj_bioinformatics/raw_reads/wnv-s_21&22_R1.1__2530EBE__/Fastq/CSU17035_S49_L001_R1_001.fastq.gz,/projects/rtk24@colostate.edu/proj_bioinformatics/raw_reads/wnv-s_21&22_R1.1__2530EBE__/Fastq/CSU17035_S49_L001_R2_001.fastq.gz

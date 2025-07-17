@@ -1,0 +1,784 @@
+Jul-08 17:24:48.056 [main] DEBUG nextflow.cli.Launcher - $> nextflow run viralrecon -r 2.6.0 -profile singularity -c conf/wnv.config -params-file assets/wnv_params.yaml --input input/wnv_kapa_test.csv --outdir wnv-s_21-22 --genome WNV_REF -resume
+Jul-08 17:24:48.258 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
+Jul-08 17:24:48.298 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/scratch/alpine/rtk24@colostate.edu/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
+Jul-08 17:24:48.315 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-08 17:24:48.317 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-08 17:24:48.319 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-08 17:24:48.339 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-08 17:24:48.370 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /scratch/alpine/rtk24@colostate.edu/scm
+Jul-08 17:24:48.381 [main] DEBUG nextflow.scm.AssetManager - Listing projects in folder: /scratch/alpine/rtk24@colostate.edu/assets
+Jul-08 17:24:49.192 [main] DEBUG nextflow.scm.AssetManager - Git config: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/viralrecon.git
+Jul-08 17:24:49.229 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Jul-08 17:24:49.240 [main] DEBUG nextflow.scm.AssetManager - Git config: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/viralrecon.git
+Jul-08 17:24:50.353 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/nextflow.config
+Jul-08 17:24:50.354 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/nextflow.config
+Jul-08 17:24:50.357 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/conf/wnv.config
+Jul-08 17:24:50.358 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/nextflow.config
+Jul-08 17:24:50.359 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/nextflow.config
+Jul-08 17:24:50.359 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/conf/wnv.config
+Jul-08 17:24:50.365 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /scratch/alpine/rtk24@colostate.edu/secrets/store.json
+Jul-08 17:24:50.368 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@515b9d4a] - activable => nextflow.secret.LocalSecretsProvider@515b9d4a
+Jul-08 17:24:50.430 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-08 17:24:51.830 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-08 17:24:52.292 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-08 17:24:52.310 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, tes, scw, unc_longleaf, tigem, tubingen_apg, google, apollo, ipop_up, vsc_calcua, pdc_kth, googlels, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, bi, bigpurple, adcra, cedars, test_full_nanopore, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, ucl_myriad, utd_ganymede, charliecloud, fred_hutch, seattlechildrens, icr_davros, ceres, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, biohpc_gen, shifter, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, test_sispa, ucl_cscluster, tuos_stanage, azurebatch, hki, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, unity, test_nanopore, cropdiversityhpc, nygc, fgcz, conda, crg, test_full_sispa, singularity, mpcdf_viper, pe2, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, debug, genouest, cbe, unsw_katana, utd_juno, phoenix, gitpod, test_full_illumina, seawulf, uod_hpc, fub_curta, uct_hpc, aws_tower, binac, fsu_draco]
+Jul-08 17:24:52.357 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-08 17:24:52.359 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/nf-core/viralrecon` [exotic_bassi] DSL2 - revision: 3731dd3a32 [2.6.0]
+Jul-08 17:24:52.360 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-08 17:24:52.361 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-08 17:24:52.441 [main] DEBUG nextflow.Session - Session UUID: f887cdbf-4d0e-4c6d-a24c-d392d392cf7a
+Jul-08 17:24:52.441 [main] DEBUG nextflow.Session - Run name: exotic_bassi
+Jul-08 17:24:52.442 [main] DEBUG nextflow.Session - Executor pool size: 32
+Jul-08 17:24:52.452 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-08 17:24:52.487 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.04.4 build 5917
+  Created: 01-08-2024 07:05 UTC (01:05 MDT)
+  System: Linux 4.18.0-305.34.2.el8_4.x86_64
+  Runtime: Groovy 4.0.21 on OpenJDK 64-Bit Server VM 21-internal-adhoc.conda.src
+  Encoding: UTF-8 (UTF-8)
+  Process: 3451925@c3cpu-c15-u21-1.rc.int.colorado.edu [10.225.65.113]
+  CPUs: 32 - Mem: 96 GB (95.4 GB) - Swap: 0 (0) - Virtual threads ON
+Jul-08 17:24:52.519 [main] DEBUG nextflow.Session - Work-dir: /scratch/alpine/rtk24@colostate.edu [gpfs]
+Jul-08 17:24:52.569 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-08 17:24:52.591 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-08 17:24:52.705 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-08 17:24:52.717 [main] DEBUG nextflow.util.CustomPoolFactory - Creating virtual thread pool
+Jul-08 17:24:52.842 [main] DEBUG nextflow.Session - Session start
+Jul-08 17:24:52.845 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/wnv-s_21-22/pipeline_info/execution_trace_2025-07-08_17-24-52.txt
+Jul-08 17:24:52.854 [main] DEBUG nextflow.Session - Using default localLib path: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/lib
+Jul-08 17:24:52.862 [main] DEBUG nextflow.Session - Adding to the classpath library: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/lib
+Jul-08 17:24:52.862 [main] DEBUG nextflow.Session - Adding to the classpath library: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/lib/nfcore_external_java_deps.jar
+Jul-08 17:24:53.712 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-08 17:24:53.784 [main] INFO  nextflow.Nextflow - 
+
+-[2m----------------------------------------------------[0m-
+                                        [0;32m,--.[0;30m/[0;32m,-.[0m
+[0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
+[0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
+[0;34m  | \| |       \__, \__/ |  \ |___     [0;32m\`-._,-`-,[0m
+                                        [0;32m`._,._,'[0m
+[0;35m  nf-core/viralrecon v2.6.0-g3731dd3[0m
+-[2m----------------------------------------------------[0m-
+[1mCore Nextflow options[0m
+  [0;34mrevision        : [0;32m2.6.0[0m
+  [0;34mrunName         : [0;32mexotic_bassi[0m
+  [0;34mcontainerEngine : [0;32msingularity[0m
+  [0;34mlaunchDir       : [0;32m/projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon[0m
+  [0;34mworkDir         : [0;32m/scratch/alpine/rtk24@colostate.edu[0m
+  [0;34mprojectDir      : [0;32m/scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon[0m
+  [0;34muserName        : [0;32mrtk24@colostate.edu[0m
+  [0;34mprofile         : [0;32msingularity[0m
+  [0;34mconfigFiles     : [0;32m/scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/nextflow.config, /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/nextflow.config, /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/conf/wnv.config[0m
+
+[1mInput/output options[0m
+  [0;34minput           : [0;32minput/wnv_kapa_test.csv[0m
+  [0;34mplatform        : [0;32millumina[0m
+  [0;34mprotocol        : [0;32mamplicon[0m
+  [0;34moutdir          : [0;32mwnv-s_21-22[0m
+
+[1mReference genome options[0m
+  [0;34mgenome          : [0;32mWNV_REF[0m
+  [0;34mfasta           : [0;32mreference/west_nile_virus.fasta[0m
+  [0;34mgff             : [0;32mreference/west_nile_virus.gff[0m
+  [0;34mprimer_bed      : [0;32mreference/WNVic.primers_NC_009942_1.bed[0m
+
+[1mNanopore/Illumina options[0m
+  [0;34mskip_pangolin   : [0;32mtrue[0m
+  [0;34mskip_nextclade  : [0;32mtrue[0m
+
+[1mIllumina QC, read trimming and filtering options[0m
+  [0;34mskip_kraken2    : [0;32mtrue[0m
+
+[1mIllumina variant calling options[0m
+  [0;34mvariant_caller  : [0;32mivar[0m
+  [0;34mconsensus_caller: [0;32mivar[0m
+
+[1mIllumina de novo assembly options[0m
+  [0;34mskip_assembly   : [0;32mtrue[0m
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+-[2m----------------------------------------------------[0m-
+If you use nf-core/viralrecon for your analysis please cite:
+
+* The pipeline
+  https://doi.org/10.5281/zenodo.3901628
+
+* The nf-core framework
+  https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+  https://github.com/nf-core/viralrecon/blob/master/CITATIONS.md
+-[2m----------------------------------------------------[0m-
+Jul-08 17:24:53.786 [main] WARN  nextflow.Nextflow - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Multiple config files detected!
+  Please provide pipeline parameters via the CLI or Nextflow '-params-file' option.
+  Custom config files including those provided by the '-c' Nextflow option can be
+  used to provide any configuration except for parameters.
+
+  Docs: https://nf-co.re/usage/configuration#custom-configuration-files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jul-08 17:24:53.907 [main] WARN  nextflow.Nextflow - Found unexpected parameters:
+* --skip_variants_filtering: true
+Jul-08 17:24:53.908 [main] INFO  nextflow.Nextflow - - [2mIgnore this warning: params.schema_ignore_params = "skip_variants_filtering" [0m
+Jul-08 17:24:54.470 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 2.5.3
+Jul-08 17:24:54.551 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@2.5.3' resolved
+Jul-08 17:24:54.551 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@2.5.3'
+Jul-08 17:24:58.464 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@2.5.3
+Jul-08 17:24:58.639 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Jul-08 17:24:58.640 [main] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://ngi-igenomes/test-data/viralrecon/kraken2_human.tar.gz
+Jul-08 17:24:58.723 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Jul-08 17:24:58.807 [main] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
+Jul-08 17:25:01.313 [main] DEBUG n.c.aws.util.S3CredentialsProvider - No AWS credentials available - falling back to anonymous access
+Jul-08 17:25:09.346 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES
+Jul-08 17:25:09.348 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CUSTOM_GETCHROMSIZES` matches process NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES
+Jul-08 17:25:09.357 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.357 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.362 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jul-08 17:25:09.367 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=32; memory=96 GB; capacity=32; pollInterval=100ms; dumpInterval=5m
+Jul-08 17:25:09.369 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jul-08 17:25:09.416 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS
+Jul-08 17:25:09.417 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:COLLAPSE_PRIMERS` matches process NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS
+Jul-08 17:25:09.421 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.421 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.430 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD
+Jul-08 17:25:09.431 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:BOWTIE2_BUILD` matches process NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD
+Jul-08 17:25:09.435 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.435 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.442 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD
+Jul-08 17:25:09.443 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SNPEFF_BUILD` matches process NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD
+Jul-08 17:25:09.445 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.445 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.466 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK
+Jul-08 17:25:09.467 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SAMPLESHEET_CHECK` matches process NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK
+Jul-08 17:25:09.469 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.469 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.500 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:CAT_FASTQ
+Jul-08 17:25:09.501 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CAT_FASTQ` matches process NFCORE_VIRALRECON:ILLUMINA:CAT_FASTQ
+Jul-08 17:25:09.504 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.504 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.520 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW
+Jul-08 17:25:09.521 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW
+Jul-08 17:25:09.523 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.524 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.537 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP
+Jul-08 17:25:09.537 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:FASTP` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP
+Jul-08 17:25:09.541 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.541 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.555 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM
+Jul-08 17:25:09.556 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM
+Jul-08 17:25:09.558 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.558 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.585 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN
+Jul-08 17:25:09.585 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:BOWTIE2_ALIGN` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN
+Jul-08 17:25:09.588 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.588 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.600 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.601 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SAMTOOLS_SORT` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.601 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_ALIGN_BOWTIE2:.*:SAMTOOLS_SORT` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.603 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.603 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.610 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:09.611 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_ALIGN_BOWTIE2:.*:SAMTOOLS_INDEX` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:09.613 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.613 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.626 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:09.627 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_ALIGN_BOWTIE2:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:09.629 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.629 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.635 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:09.636 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_ALIGN_BOWTIE2:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:09.637 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.637 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.644 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:09.645 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:FASTQ_ALIGN_BOWTIE2:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:09.647 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.647 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.672 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM
+Jul-08 17:25:09.674 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:IVAR_TRIM` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM
+Jul-08 17:25:09.676 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.676 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.684 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.685 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SAMTOOLS_SORT` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.685 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:BAM_TRIM_PRIMERS_IVAR:.*:SAMTOOLS_SORT` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:09.687 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.687 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.695 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:09.696 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:BAM_TRIM_PRIMERS_IVAR:.*:SAMTOOLS_INDEX` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:09.698 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.698 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.711 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:09.712 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:BAM_TRIM_PRIMERS_IVAR:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:09.714 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.714 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.720 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:09.721 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:BAM_TRIM_PRIMERS_IVAR:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:09.723 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.723 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.729 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:09.730 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:BAM_TRIM_PRIMERS_IVAR:.*:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:09.731 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.731 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.746 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS
+Jul-08 17:25:09.747 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PICARD_COLLECTMULTIPLEMETRICS` matches process NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS
+Jul-08 17:25:09.749 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.749 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.766 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME
+Jul-08 17:25:09.767 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:MOSDEPTH_GENOME` matches process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME
+Jul-08 17:25:09.770 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.770 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.784 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME
+Jul-08 17:25:09.785 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PLOT_MOSDEPTH_REGIONS_GENOME` matches process NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME
+Jul-08 17:25:09.787 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.787 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.814 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON
+Jul-08 17:25:09.815 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:MOSDEPTH_AMPLICON` matches process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON
+Jul-08 17:25:09.819 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.819 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.832 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON
+Jul-08 17:25:09.833 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PLOT_MOSDEPTH_REGIONS_AMPLICON` matches process NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON
+Jul-08 17:25:09.834 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.834 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.849 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS
+Jul-08 17:25:09.851 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:IVAR_VARIANTS` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS
+Jul-08 17:25:09.853 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.853 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.866 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:IVAR_VARIANTS_TO_VCF` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF
+Jul-08 17:25:09.868 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.868 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.878 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT
+Jul-08 17:25:09.879 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:VARIANTS_IVAR:BCFTOOLS_SORT` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT
+Jul-08 17:25:09.880 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.880 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.889 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:09.891 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:VARIANTS_IVAR:.*:TABIX_TABIX` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:09.892 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.892 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.902 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:09.903 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:VARIANTS_IVAR:.*:BCFTOOLS_STATS` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:09.904 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.904 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.922 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN
+Jul-08 17:25:09.923 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SNPEFF_ANN` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN
+Jul-08 17:25:09.925 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.925 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.936 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP
+Jul-08 17:25:09.938 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:.*:.*:SNPEFF_SNPSIFT:.*:TABIX_BGZIP` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP
+Jul-08 17:25:09.939 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.939 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.948 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:09.949 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:VARIANTS_IVAR:.*:TABIX_TABIX` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:09.950 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:.*:.*:SNPEFF_SNPSIFT:.*:.*:TABIX_TABIX` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:09.951 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.951 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.964 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:09.965 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:VARIANTS_IVAR:.*:BCFTOOLS_STATS` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:09.965 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:.*:.*:SNPEFF_SNPSIFT:.*:.*:BCFTOOLS_STATS` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:09.967 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.967 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:09.980 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS
+Jul-08 17:25:09.981 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:.*:.*:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS
+Jul-08 17:25:09.983 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:09.983 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.005 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME
+Jul-08 17:25:10.006 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ASCIIGENOME` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME
+Jul-08 17:25:10.008 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.008 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.026 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS
+Jul-08 17:25:10.027 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:IVAR_CONSENSUS` matches process NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS
+Jul-08 17:25:10.029 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.029 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.042 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST
+Jul-08 17:25:10.043 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:.*:CONSENSUS_.*:.*:QUAST` matches process NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST
+Jul-08 17:25:10.044 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.044 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.055 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY
+Jul-08 17:25:10.056 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PLOT_BASE_DENSITY` matches process NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY
+Jul-08 17:25:10.058 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.058 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.078 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY
+Jul-08 17:25:10.079 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:BCFTOOLS_QUERY` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY
+Jul-08 17:25:10.081 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.081 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.099 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:MAKE_VARIANTS_LONG_TABLE` matches process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:MAKE_VARIANTS_LONG_TABLE
+Jul-08 17:25:10.100 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.100 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.130 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-08 17:25:10.131 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CUSTOM_DUMPSOFTWAREVERSIONS` matches process NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-08 17:25:10.133 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.133 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.225 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_VIRALRECON:ILLUMINA:MULTIQC
+Jul-08 17:25:10.226 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:MULTIQC` matches process NFCORE_VIRALRECON:ILLUMINA:MULTIQC
+Jul-08 17:25:10.228 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-08 17:25:10.228 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-08 17:25:10.247 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: MAKE_BED_MASK, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, MOSDEPTH, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM, BCFTOOLS_CONSENSUS, CAT_FASTQ, GUNZIP, NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON, SAMTOOLS_STATS, NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS, NFCORE_VIRALRECON:ILLUMINA:MULTIQC, GUNZIP_GFF, QUAST, NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS, GUNZIP_GFA, NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD, BOWTIE2_ALIGN, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, UNTAR_BLAST_DB, SAMTOOLS_INDEX, FASTQC, TABIX_TABIX, COLLAPSE_PRIMERS, MULTIQC, UNICYCLER, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX, CUTADAPT, NEXTCLADE_DATASETGET, KRAKEN2_BUILD, IVAR_TRIM, UNTAR_BOWTIE2_INDEX, BLAST_MAKEBLASTDB, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP, MAKE_VARIANTS_LONG_TABLE, SAMTOOLS_FLAGSTAT, SNPSIFT_EXTRACTFIELDS, SAMPLESHEET_CHECK, GUNZIP_SCAFFOLDS, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN, GUNZIP_FASTA, BCFTOOLS_SORT, PLASMIDID, RENAME_FASTA_HEADER, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME, NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS, BEDTOOLS_MASKFASTA, FILTER_BLASTN, BCFTOOLS_FILTER, BLAST_BLASTN, BCFTOOLS_NORM, PLOT_BASE_DENSITY, BANDAGE_IMAGE, MOSDEPTH_GENOME, FASTQC_TRIM, BCFTOOLS_STATS, SNPEFF_BUILD, IVAR_CONSENSUS, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, FASTP, TABIX_BGZIP, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:MAKE_VARIANTS_LONG_TABLE, MINIA, PICARD_MARKDUPLICATES, NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP, NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME, GUNZIP_PRIMER_FASTA, KRAKEN2_KRAKEN2, UNTAR, FASTQC_RAW, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, NEXTCLADE_RUN, NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK, NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES, NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS, PLOT_MOSDEPTH_REGIONS_GENOME, MOSDEPTH_AMPLICON, IVAR_VARIANTS, PICARD_COLLECTMULTIPLEMETRICS, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS, BEDTOOLS_GETFASTA, BOWTIE2_BUILD, NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST, SPADES, CUSTOM_GETCHROMSIZES, BCFTOOLS_QUERY, GUNZIP_PRIMER_BED, NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, SAMTOOLS_SORT, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN, NFCORE_VIRALRECON:ILLUMINA:CAT_FASTQ, PANGOLIN, ASCIIGENOME, BCFTOOLS_MPILEUP, NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, SNPEFF_ANN, ABACAS, NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF, NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW, BEDTOOLS_MERGE, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT, NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY, UNTAR_NEXTCLADE_DB, UNTAR_KRAKEN2_DB, NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY, PLOT_MOSDEPTH_REGIONS_AMPLICON, IVAR_VARIANTS_TO_VCF, SAMTOOLS_IDXSTATS, PLOT_MOSDEPTH_REGIONS, CUSTOM_DUMPSOFTWAREVERSIONS, NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS
+Jul-08 17:25:10.284 [main] WARN  nextflow.Session - There's no process matching config selector: .*:.*:PREPARE_GENOME:GUNZIP_.*
+Jul-08 17:25:10.285 [main] WARN  nextflow.Session - There's no process matching config selector: .*:.*:PREPARE_GENOME:UNTAR_.*
+Jul-08 17:25:10.288 [main] DEBUG nextflow.Session - Igniting dataflow network (124)
+Jul-08 17:25:10.290 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES
+Jul-08 17:25:10.290 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS
+Jul-08 17:25:10.291 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD
+Jul-08 17:25:10.291 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD
+Jul-08 17:25:10.291 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK
+Jul-08 17:25:10.291 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:CAT_FASTQ
+Jul-08 17:25:10.291 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW
+Jul-08 17:25:10.292 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP
+Jul-08 17:25:10.292 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM
+Jul-08 17:25:10.292 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN
+Jul-08 17:25:10.293 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:10.293 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:10.293 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:10.294 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:10.294 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:10.294 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM
+Jul-08 17:25:10.294 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Jul-08 17:25:10.294 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Jul-08 17:25:10.295 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME
+Jul-08 17:25:10.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON
+Jul-08 17:25:10.298 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON
+Jul-08 17:25:10.298 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS
+Jul-08 17:25:10.298 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF
+Jul-08 17:25:10.298 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT
+Jul-08 17:25:10.299 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:10.299 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:10.299 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN
+Jul-08 17:25:10.299 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP
+Jul-08 17:25:10.300 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX
+Jul-08 17:25:10.300 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS
+Jul-08 17:25:10.300 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS
+Jul-08 17:25:10.300 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME
+Jul-08 17:25:10.301 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS
+Jul-08 17:25:10.301 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST
+Jul-08 17:25:10.301 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY
+Jul-08 17:25:10.301 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY
+Jul-08 17:25:10.302 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:MAKE_VARIANTS_LONG_TABLE
+Jul-08 17:25:10.302 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-08 17:25:10.303 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_VIRALRECON:ILLUMINA:MULTIQC
+Jul-08 17:25:10.305 [Actor Thread 384] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
+Jul-08 17:25:10.305 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_171f56be792dd032: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/abacas/main.nf
+  Script_392e714dbe8a1df6: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/fastqc/main.nf
+  Script_82832e4f78731dc7: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/././../../modules/local/snpsift_extractfields.nf
+  Script_e5c8e282196fb75b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/local/filter_blastn.nf
+  Script_4ae97b6c4de15968: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/kraken2_build.nf
+  Script_afe2a5128af617ec: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/nf-core/mosdepth/main.nf
+  Script_5a9d552c62a087ee: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bandage/image/main.nf
+  Script_9eaf890fa8a7af97: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/local/asciigenome.nf
+  Script_50b41f6826c95502: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bowtie2/build/main.nf
+  Script_cc13f936b26c353f: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/main.nf
+  Script_cff2a19c060594ab: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./variants_qc.nf
+  Script_c51a3e306ca4c7aa: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/bam_trim_primers_ivar.nf
+  Script_1163f0f7340cba96: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/mpileup/main.nf
+  Script_7a3e19921fa26aec: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/pangolin/main.nf
+  Script_cc2526b718012024: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/local/multiqc_illumina.nf
+  Script_bbf547d8dba4eb76: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/blast/blastn/main.nf
+  Script_98b09c3b35046f13: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/samplesheet_check.nf
+  Script_b99f81f3247c1b22: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/gunzip/main.nf
+  Script_f82ba87ff21585e1: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/local/plot_base_density.nf
+  Script_1d7f44b8ee00eb23: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/rename_fasta_header.nf
+  Script_813f8bd24f68044c: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../bam_stats_samtools/../../../modules/nf-core/samtools/flagstat/main.nf
+  Script_0e1385d55e695123: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/sort/main.nf
+  Script_622d4b2a91e75ea6: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/bam_markduplicates_picard/../../../modules/nf-core/samtools/index/main.nf
+  Script_212886b35bdb8b3e: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/variants_long_table.nf
+  Script_7527dacac01b0a6d: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/././././vcf_tabix_stats.nf
+  Script_0df5d5439880a542: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/assembly_spades.nf
+  Script_e67131615ff8f59b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/nextclade/run/main.nf
+  Script_dd40e7ee19caedbd: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/tabix/tabix/main.nf
+  Script_eb68c3e575f8fcdb: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/consensus_bcftools.nf
+  Script_edfe1f1a3349a1ba: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/prepare_genome_illumina.nf
+  Script_0c5ebca7ad03f851: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/bam_markduplicates_picard/../../../modules/nf-core/picard/markduplicates/main.nf
+  Script_67767acafb3ca123: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/././../../modules/local/snpeff_ann.nf
+  Script_f560ba5b2809315b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/nf-core/custom/dumpsoftwareversions/main.nf
+  Script_d7295afec28f0af7: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/fastq_trim_fastp_fastqc.nf
+  Script_ddee89947b9fac93: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/getfasta/main.nf
+  Script_0f06d4e9cb0c04fd: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/fastp/main.nf
+  Script_78f752979dec5aaa: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/quast/main.nf
+  Script_c01951670e23583f: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/././snpeff_snpsift.nf
+  Script_bc1513495600293b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/make_variants_long_table.nf
+  Script_161e0fc774636b4d: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/filter/main.nf
+  Script_653df7ce942ce029: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./././vcf_bgzip_tabix_stats.nf
+  Script_3936c78ef9aedf26: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/ivar/variants/main.nf
+  Script_f9bc8fbc66fea321: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/collapse_primers.nf
+  Script_582e23b0fa8893c0: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./consensus_qc.nf
+  Script_0c90d264a51bc64b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/merge/main.nf
+  Script_dbeb776b6996f1b0: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./../../modules/nf-core/plasmidid/main.nf
+  Script_d049e4333c2db68e: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/norm/main.nf
+  Script_e69457c5a9478b12: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/snpeff_build.nf
+  Script_509677ea22863b9c: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/query/main.nf
+  Script_524f102e8e077dc3: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/input_check.nf
+  Script_747a639779ec3d31: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/././././../../modules/nf-core/bcftools/stats/main.nf
+  Script_6e7e3ea92560e94a: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/fastq_align_bowtie2/../bam_sort_stats_samtools/../bam_stats_samtools/main.nf
+  Script_505ec9861459c120: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./././../../modules/nf-core/tabix/bgzip/main.nf
+  Script_b7eabc0280d0f6de: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/spades/main.nf
+  Script_6ced4aca7f503e1e: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/minia/main.nf
+  Script_08e8120406c42c87: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/bam_markduplicates_picard/../bam_stats_samtools/../../../modules/nf-core/samtools/stats/main.nf
+  Script_d9f37cc7b6553f2c: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/nf-core/kraken2/kraken2/main.nf
+  Script_cb211c549341a328: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/fastq_align_bowtie2/../bam_sort_stats_samtools/../bam_stats_samtools/../../../modules/nf-core/samtools/idxstats/main.nf
+  Script_9f7e885c36e49ade: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/variants_ivar.nf
+  Script_dd1c43c2a0597b3b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bcftools/consensus/main.nf
+  Script_043409e31d8b9164: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/variants_bcftools.nf
+  Script_a4cc5b311d906ff4: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/assembly_minia.nf
+  Script_0aaf4911c5a2ee55: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/local/plot_mosdepth_regions.nf
+  Script_c5947f9108c123ff: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/nextclade/datasetget/main.nf
+  Script_dbfcd99b4643d9a2: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/bam_markduplicates_picard/main.nf
+  Script_3e99caba1ee271cd: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/maskfasta/main.nf
+  Script_3da931254dea4372: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/local/cutadapt.nf
+  Script_f9a3f3717ec9abf7: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/nf-core/picard/collectmultiplemetrics/main.nf
+  Script_95a000d7314a53ff: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/./assembly_qc.nf
+  Script_7ddd67a51b3ad523: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/main.nf
+  Script_c45bc812e1d5f5cb: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../../../modules/nf-core/samtools/sort/main.nf
+  Script_91738e59e65f95b5: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../modules/nf-core/cat/fastq/main.nf
+  Script_cb35c946a46bb082: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/make_bed_mask.nf
+  Script_143639a160311391: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/assembly_unicycler.nf
+  Script_cdf3da412293fa45: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/untar/main.nf
+  Script_bf272342dd9add44: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/blast/makeblastdb/main.nf
+  Script_ae0a281286baa19e: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/local/ivar_variants_to_vcf.nf
+  Script_5e602e6befe4adc6: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/custom/getchromsizes/main.nf
+  Script_fa87eec1e33566a9: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/fastq_align_bowtie2/main.nf
+  Script_9542053f40d7b8d9: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/nf-core/fastq_align_bowtie2/../../../modules/nf-core/bowtie2/align/main.nf
+  Script_e0924165c0b96bdf: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/ivar/consensus/main.nf
+  Script_9b7486b9ec30328b: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/consensus_ivar.nf
+  Script_6a4e2158c1b55792: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/unicycler/main.nf
+  Script_2455faffc6e9a0ac: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/../subworkflows/local/../../modules/nf-core/ivar/trim/main.nf
+  Script_b5dd8be0b54c663e: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/./workflows/illumina.nf
+Jul-08 17:25:10.305 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-08 17:25:10.305 [main] DEBUG nextflow.Session - Session await
+Jul-08 17:25:10.395 [Actor Thread 408] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/bowtie2:2.4.4--py39hbb4e92a_0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-bowtie2-2.4.4--py39hbb4e92a_0.img
+Jul-08 17:25:10.395 [Actor Thread 406] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/python:3.9--1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-python-3.9--1.img
+Jul-08 17:25:10.395 [Actor Thread 409] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/samtools:1.16.1--h6899075_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-samtools-1.16.1--h6899075_1.img
+Jul-08 17:25:10.395 [Actor Thread 407] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/snpeff:5.0--hdfd78af_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-snpeff-5.0--hdfd78af_1.img
+Jul-08 17:25:10.413 [Actor Thread 345] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/check_samplesheet.py
+Jul-08 17:25:10.413 [Actor Thread 346] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/collapse_primer_bed.py
+Jul-08 17:25:10.450 [Actor Thread 402] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.001 s; external sort time: 0.003 s; total time: 0.004 s
+Jul-08 17:25:10.451 [Actor Thread 402] DEBUG nextflow.file.FileCollector - >> temp file exists? false
+Jul-08 17:25:10.451 [Actor Thread 402] DEBUG nextflow.file.FileCollector - Missed collect-file cache -- cause: java.nio.file.NoSuchFileException: /scratch/alpine/rtk24@colostate.edu/collect-file/288b9508a58a380c80831cfaf6f2ace8
+Jul-08 17:25:10.456 [Actor Thread 402] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /scratch/alpine/rtk24@colostate.edu/collect-file/288b9508a58a380c80831cfaf6f2ace8
+Jul-08 17:25:10.464 [Actor Thread 402] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /scratch/alpine/rtk24@colostate.edu/nxf-11883775991223261753
+Jul-08 17:25:10.540 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:10.542 [Task submitter] INFO  nextflow.Session - [c9/17fa48] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS (WNVic.primers_NC_009942_1.bed)
+Jul-08 17:25:10.551 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:10.551 [Task submitter] INFO  nextflow.Session - [0a/a49c3e] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD (west_nile_virus.fasta)
+Jul-08 17:25:10.558 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:10.558 [Task submitter] INFO  nextflow.Session - [be/c30c5c] Submitted process > NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK (wnv_kapa_test.csv)
+Jul-08 17:25:10.564 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:10.564 [Task submitter] INFO  nextflow.Session - [44/fcdfaa] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (west_nile_virus.fasta)
+Jul-08 17:25:13.525 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (west_nile_virus.fasta); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/44/fcdfaa3cdad6f762e2d9823138f788]
+Jul-08 17:25:13.599 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:CUSTOM_GETCHROMSIZES > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:14.118 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:COLLAPSE_PRIMERS (WNVic.primers_NC_009942_1.bed); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/c9/17fa48c37ea4793d51d9c73034726f]
+Jul-08 17:25:14.128 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:14.128 [Task submitter] INFO  nextflow.Session - [0c/4f9153] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD (west_nile_virus.fasta)
+Jul-08 17:25:14.153 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: NFCORE_VIRALRECON:ILLUMINA:INPUT_CHECK:SAMPLESHEET_CHECK (wnv_kapa_test.csv); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/be/c30c5cf8c21618d86fd95956b82c47]
+Jul-08 17:25:14.194 [Actor Thread 531] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/fastp:0.23.2--h79da9fb_0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-fastp-0.23.2--h79da9fb_0.img
+Jul-08 17:25:14.200 [Actor Thread 530] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/fastqc:0.11.9--0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-fastqc-0.11.9--0.img
+Jul-08 17:25:15.742 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:BOWTIE2_BUILD (west_nile_virus.fasta); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/0c/4f915381add14fdf66ca747b33b197]
+Jul-08 17:25:15.749 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:15.749 [Task submitter] INFO  nextflow.Session - [8e/6e4d2e] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP (CSU17060)
+Jul-08 17:25:15.754 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:15.755 [Task submitter] INFO  nextflow.Session - [b7/154228] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP (CSU17035)
+Jul-08 17:25:16.780 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/b7/1542287463f31d275f81ca4a36eb28]
+Jul-08 17:25:16.785 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:16.785 [Task submitter] INFO  nextflow.Session - [59/6e8276] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW (CSU17035)
+Jul-08 17:25:16.790 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP > Skipping output binding because one or more optional files are missing: fileoutparam<5:1>
+Jul-08 17:25:16.790 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP > Skipping output binding because one or more optional files are missing: fileoutparam<6:1>
+Jul-08 17:25:16.840 [Actor Thread 591] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-ac74a7f02cebcfcc07d8e8d1d750af9c83b4d45a:a0ffedb52808e102887f6ce600d092675bf3528a-0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mulled-v2-ac74a7f02cebcfcc07d8e8d1d750af9c83b4d45a-a0ffedb52808e102887f6ce600d092675bf3528a-0.img
+Jul-08 17:25:17.538 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: NFCORE_VIRALRECON:ILLUMINA:PREPARE_GENOME:SNPEFF_BUILD (west_nile_virus.fasta); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/0a/a49c3e2a5707561801c2fd69b7ed68]
+Jul-08 17:25:17.797 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/8e/6e4d2e024ac6dee7a3eefcf436c7cb]
+Jul-08 17:25:17.802 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:17.803 [Task submitter] INFO  nextflow.Session - [26/446150] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW (CSU17060)
+Jul-08 17:25:17.806 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP > Skipping output binding because one or more optional files are missing: fileoutparam<5:1>
+Jul-08 17:25:17.806 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTP > Skipping output binding because one or more optional files are missing: fileoutparam<6:1>
+Jul-08 17:25:17.834 [Actor Thread 640] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
+Jul-08 17:25:23.008 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/59/6e827656fa459a4bbd34254cba9f76]
+Jul-08 17:25:23.015 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:23.016 [Task submitter] INFO  nextflow.Session - [be/458436] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM (CSU17035)
+Jul-08 17:25:23.031 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_RAW (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/26/446150a03447dac9a6cdb09f16e6d7]
+Jul-08 17:25:23.038 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:23.038 [Task submitter] INFO  nextflow.Session - [e8/d1e476] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM (CSU17060)
+Jul-08 17:25:27.049 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/be/458436b86598c32d4eb5198582551f]
+Jul-08 17:25:28.028 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_TRIM_FASTP_FASTQC:FASTQC_TRIM (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/e8/d1e476ba22f4d4e95ce28e32d914e0]
+Jul-08 17:25:28.036 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:28.036 [Task submitter] INFO  nextflow.Session - [92/bc0698] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN (CSU17035)
+Jul-08 17:25:29.747 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/92/bc0698081dafe3d32174c7d2ad031a]
+Jul-08 17:25:29.753 [TaskFinalizer-12] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:29.755 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:29.755 [Task submitter] INFO  nextflow.Session - [91/2a1fba] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN (CSU17060)
+Jul-08 17:25:32.277 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/91/2a1fba48f5623c753bb7f2e6befe7b]
+Jul-08 17:25:32.283 [TaskFinalizer-13] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BOWTIE2_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:32.286 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:32.286 [Task submitter] INFO  nextflow.Session - [6e/b9b35b] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17035)
+Jul-08 17:25:32.315 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:32.315 [Task submitter] INFO  nextflow.Session - [2c/79659b] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17060)
+Jul-08 17:25:32.699 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/6e/b9b35b410c595206d80b4c85681399]
+Jul-08 17:25:32.703 [TaskFinalizer-14] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:32.931 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:32.931 [Task submitter] INFO  nextflow.Session - [26/8b8a4e] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17035)
+Jul-08 17:25:33.106 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/2c/79659b8f2228868d0b2f0b2b494a46]
+Jul-08 17:25:33.110 [TaskFinalizer-15] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:33.126 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.127 [Task submitter] INFO  nextflow.Session - [a0/86ae26] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17060)
+Jul-08 17:25:33.280 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/26/8b8a4e84c0051c0ae964c81fe36a06]
+Jul-08 17:25:33.285 [TaskFinalizer-16] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:33.285 [TaskFinalizer-16] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:33.479 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/a0/86ae2678c0019d1a9d6922f881e4e3]
+Jul-08 17:25:33.483 [TaskFinalizer-17] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:33.484 [TaskFinalizer-17] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:33.504 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.504 [Task submitter] INFO  nextflow.Session - [f8/9587da] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17035)
+Jul-08 17:25:33.512 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.512 [Task submitter] INFO  nextflow.Session - [c3/4701e0] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17035)
+Jul-08 17:25:33.517 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.517 [Task submitter] INFO  nextflow.Session - [09/e2ac9a] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17060)
+Jul-08 17:25:33.522 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.522 [Task submitter] INFO  nextflow.Session - [73/f38a7b] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17035)
+Jul-08 17:25:33.529 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.529 [Task submitter] INFO  nextflow.Session - [32/a71277] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17060)
+Jul-08 17:25:33.534 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:33.534 [Task submitter] INFO  nextflow.Session - [0e/652c06] Submitted process > NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17060)
+Jul-08 17:25:33.901 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/f8/9587da06de7bf75150d429db3e22ba]
+Jul-08 17:25:33.950 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/c3/4701e0b8b24acb0a7acbaea0137a00]
+Jul-08 17:25:33.999 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/73/f38a7bc20917aa426292cebbc87140]
+Jul-08 17:25:34.000 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/32/a712777aa603cd5b74fadf07b580e3]
+Jul-08 17:25:34.007 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/0e/652c0699bb842ad037cda67c3d4b62]
+Jul-08 17:25:34.021 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: NFCORE_VIRALRECON:ILLUMINA:FASTQ_ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/09/e2ac9a3c3bed78d67b6503e72d9916]
+Jul-08 17:25:34.027 [Actor Thread 960] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/ivar:1.4--h6b7c446_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-ivar-1.4--h6b7c446_1.img
+Jul-08 17:25:34.029 [Actor Thread 984] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
+Jul-08 17:25:34.047 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:34.048 [Task submitter] INFO  nextflow.Session - [44/b7b898] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM (CSU17060)
+Jul-08 17:25:34.054 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:34.054 [Task submitter] INFO  nextflow.Session - [46/6ea93d] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM (CSU17035)
+Jul-08 17:25:34.657 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/46/6ea93d13099872d2ff714806306452]
+Jul-08 17:25:34.679 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:34.680 [Task submitter] INFO  nextflow.Session - [6d/7ebe3f] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17035)
+Jul-08 17:25:34.727 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:IVAR_TRIM (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/44/b7b898ca9d82810510046105b8dacb]
+Jul-08 17:25:34.744 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:34.744 [Task submitter] INFO  nextflow.Session - [7a/a567c8] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17060)
+Jul-08 17:25:35.086 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/6d/7ebe3f84f7442719ab455549631735]
+Jul-08 17:25:35.090 [TaskFinalizer-26] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:35.104 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.104 [Task submitter] INFO  nextflow.Session - [42/08ec31] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17035)
+Jul-08 17:25:35.111 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.111 [Task submitter] INFO  nextflow.Session - [ba/969a4c] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS (CSU17035)
+Jul-08 17:25:35.184 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/7a/a567c8caefa5accd3cfcfe7da170a9]
+Jul-08 17:25:35.190 [TaskFinalizer-27] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:35.193 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.193 [Task submitter] INFO  nextflow.Session - [b3/3699fc] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS (CSU17035)
+Jul-08 17:25:35.204 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.204 [Task submitter] INFO  nextflow.Session - [0c/49c358] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17060)
+Jul-08 17:25:35.483 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/42/08ec31fb31ccda8be44dbf24832a04]
+Jul-08 17:25:35.488 [TaskFinalizer-28] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:35.489 [TaskFinalizer-28] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:35.499 [Actor Thread 1120] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mosdepth:0.3.3--hdfd78af_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mosdepth-0.3.3--hdfd78af_1.img
+Jul-08 17:25:35.501 [Actor Thread 1121] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/picard:3.0.0--hdfd78af_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-picard-3.0.0--hdfd78af_1.img
+Jul-08 17:25:35.578 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/ba/969a4cad99feaee6ada3cb7fb87e89]
+Jul-08 17:25:35.583 [TaskFinalizer-29] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:35.585 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.585 [Task submitter] INFO  nextflow.Session - [03/dd58af] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS (CSU17060)
+Jul-08 17:25:35.588 [Actor Thread 1134] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-ad9dd5f398966bf899ae05f8e7c54d0fb10cdfa7:05678da05b8e5a7a5130e90a9f9a6c585b965afa-0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mulled-v2-ad9dd5f398966bf899ae05f8e7c54d0fb10cdfa7-05678da05b8e5a7a5130e90a9f9a6c585b965afa-0.img
+Jul-08 17:25:35.590 [Actor Thread 1126] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/plot_base_density.r
+Jul-08 17:25:35.591 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:35.591 [Task submitter] INFO  nextflow.Session - [60/3af39d] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS (CSU17035)
+Jul-08 17:25:35.594 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/0c/49c3582d93a49f4a4b25f265f113cf]
+Jul-08 17:25:35.598 [TaskFinalizer-30] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:35.598 [TaskFinalizer-30] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:36.175 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/b3/3699fc17ee879fb0ec247335444e5d]
+Jul-08 17:25:36.180 [TaskFinalizer-31] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:36.185 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.185 [Task submitter] INFO  nextflow.Session - [4f/84fb9c] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS (CSU17060)
+Jul-08 17:25:36.195 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.195 [Task submitter] INFO  nextflow.Session - [1e/671dc1] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS (CSU17060)
+Jul-08 17:25:36.197 [Actor Thread 1207] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-ff46c3f421ca930fcc54e67ab61c8e1bcbddfe22:1ad3da14f705eb0cdff6b5a44fea4909307524b4-0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mulled-v2-ff46c3f421ca930fcc54e67ab61c8e1bcbddfe22-1ad3da14f705eb0cdff6b5a44fea4909307524b4-0.img
+Jul-08 17:25:36.199 [Actor Thread 1203] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/assets/headers/ivar_variants_header_mqc.txt
+Jul-08 17:25:36.200 [Actor Thread 1203] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/ivar_variants_to_vcf.py
+Jul-08 17:25:36.203 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.203 [Task submitter] INFO  nextflow.Session - [6e/db6e6b] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17060)
+Jul-08 17:25:36.211 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.211 [Task submitter] INFO  nextflow.Session - [bd/7119bb] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17060)
+Jul-08 17:25:36.264 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/03/dd58af1b4584af9bc6ef57086cfeb9]
+Jul-08 17:25:36.274 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.274 [Task submitter] INFO  nextflow.Session - [1c/a39faf] Submitted process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON (CSU17035)
+Jul-08 17:25:36.277 [TaskFinalizer-32] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:IVAR_CONSENSUS > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Jul-08 17:25:36.296 [Actor Thread 1224] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/quast:5.2.0--py39pl5321h2add14b_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-quast-5.2.0--py39pl5321h2add14b_1.img
+Jul-08 17:25:36.600 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/bd/7119bb6f65718c52c88e4aa3c5316b]
+Jul-08 17:25:36.607 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.608 [Task submitter] INFO  nextflow.Session - [6a/d4642c] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17035)
+Jul-08 17:25:36.655 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/1c/a39faf743d46f3cb9b12467c90c81d]
+Jul-08 17:25:36.664 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.664 [Task submitter] INFO  nextflow.Session - [54/b744b5] Submitted process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME (CSU17035)
+Jul-08 17:25:36.670 [TaskFinalizer-34] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<3:1>
+Jul-08 17:25:36.670 [TaskFinalizer-34] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<8:1>
+Jul-08 17:25:36.670 [TaskFinalizer-34] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<9:1>
+Jul-08 17:25:36.697 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/6e/db6e6b14569ae6911228004a1f73e0]
+Jul-08 17:25:36.706 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:36.706 [Task submitter] INFO  nextflow.Session - [05/61d7d3] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17035)
+Jul-08 17:25:37.042 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/54/b744b505455cb5862eca989427abd8]
+Jul-08 17:25:37.048 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.048 [Task submitter] INFO  nextflow.Session - [57/61fed6] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY (CSU17035.consensus.fa)
+Jul-08 17:25:37.059 [TaskFinalizer-36] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<3:1>
+Jul-08 17:25:37.059 [TaskFinalizer-36] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<8:1>
+Jul-08 17:25:37.059 [TaskFinalizer-36] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<9:1>
+Jul-08 17:25:37.060 [TaskFinalizer-36] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<10:1>
+Jul-08 17:25:37.060 [TaskFinalizer-36] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<11:1>
+Jul-08 17:25:37.065 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/6a/d4642c13aca0dce8689479710cfa5e]
+Jul-08 17:25:37.075 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.075 [Task submitter] INFO  nextflow.Session - [e1/f02ea0] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17060)
+Jul-08 17:25:37.087 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/05/61d7d33b0b57268b8d9b536b00877e]
+Jul-08 17:25:37.093 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.093 [Task submitter] INFO  nextflow.Session - [50/8eb80f] Submitted process > NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17035)
+Jul-08 17:25:37.226 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/4f/84fb9ce7efd63a13d73646c64b0df7]
+Jul-08 17:25:37.230 [TaskFinalizer-39] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:37.233 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.233 [Task submitter] INFO  nextflow.Session - [33/bbf149] Submitted process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON (CSU17060)
+Jul-08 17:25:37.428 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/e1/f02ea09356ed7d73adb4673876bb5f]
+Jul-08 17:25:37.434 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.434 [Task submitter] INFO  nextflow.Session - [ba/603451] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF (CSU17035)
+Jul-08 17:25:37.449 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: NFCORE_VIRALRECON:ILLUMINA:BAM_TRIM_PRIMERS_IVAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/50/8eb80fc1ce206241b74a0e0a5da965]
+Jul-08 17:25:37.456 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.457 [Task submitter] INFO  nextflow.Session - [aa/f7ff8b] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF (CSU17060)
+Jul-08 17:25:37.570 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/33/bbf14981b6cffbb546ec1af27bba97]
+Jul-08 17:25:37.584 [TaskFinalizer-42] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<3:1>
+Jul-08 17:25:37.585 [TaskFinalizer-42] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<8:1>
+Jul-08 17:25:37.585 [TaskFinalizer-42] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_AMPLICON > Skipping output binding because one or more optional files are missing: fileoutparam<9:1>
+Jul-08 17:25:37.593 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.593 [Task submitter] INFO  nextflow.Session - [34/45426a] Submitted process > NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME (CSU17060)
+Jul-08 17:25:37.594 [Actor Thread 1395] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/plot_mosdepth_regions.r
+Jul-08 17:25:37.964 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/34/45426a24b9dddf42bd7ac62d2881a1]
+Jul-08 17:25:37.969 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:37.969 [Task submitter] INFO  nextflow.Session - [90/4bbbde] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY (CSU17060.consensus.fa)
+Jul-08 17:25:37.977 [TaskFinalizer-43] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<3:1>
+Jul-08 17:25:37.977 [TaskFinalizer-43] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<8:1>
+Jul-08 17:25:37.977 [TaskFinalizer-43] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<9:1>
+Jul-08 17:25:37.978 [TaskFinalizer-43] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<10:1>
+Jul-08 17:25:37.978 [TaskFinalizer-43] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MOSDEPTH_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<11:1>
+Jul-08 17:25:41.226 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/ba/6034513a53a5b2a686ed692f2c51b4]
+Jul-08 17:25:41.291 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 50; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:IVAR_VARIANTS_TO_VCF (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/aa/f7ff8b5c34db5298c97c2d91c5fb6c]
+Jul-08 17:25:41.293 [Actor Thread 1428] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/bcftools:1.16--hfe4b78e_1; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-bcftools-1.16--hfe4b78e_1.img
+Jul-08 17:25:41.806 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/60/3af39dd0d255269e8b3601569baab8]
+Jul-08 17:25:41.963 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: NFCORE_VIRALRECON:ILLUMINA:PICARD_COLLECTMULTIPLEMETRICS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/1e/671dc1b58a7010412d0a2cbe24282d]
+Jul-08 17:25:43.941 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 48; name: NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY (CSU17060.consensus.fa); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/90/4bbbde9c696290e49cb71097896954]
+Jul-08 17:25:43.949 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:43.949 [Task submitter] INFO  nextflow.Session - [93/755ec9] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST
+Jul-08 17:25:44.042 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:PLOT_BASE_DENSITY (CSU17035.consensus.fa); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/57/61fed64f8509c470d5ff4cf3bdaee2]
+Jul-08 17:25:44.048 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:44.048 [Task submitter] INFO  nextflow.Session - [78/ec095a] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON
+Jul-08 17:25:49.499 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 51; name: NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_AMPLICON; status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/78/ec095a49ea8d0d931e62b4ec770f7f]
+Jul-08 17:25:49.505 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:49.506 [Task submitter] INFO  nextflow.Session - [e9/5e3471] Submitted process > NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME
+Jul-08 17:25:50.552 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 49; name: NFCORE_VIRALRECON:ILLUMINA:CONSENSUS_IVAR:CONSENSUS_QC:QUAST; status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/93/755ec951eca38f7e5564354a2c213f]
+Jul-08 17:25:50.556 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:50.556 [Task submitter] INFO  nextflow.Session - [21/29f6de] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT (CSU17035)
+Jul-08 17:25:51.434 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 53; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/21/29f6de4ea5c4f22ac8f6efd2b5c657]
+Jul-08 17:25:51.439 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:51.439 [Task submitter] INFO  nextflow.Session - [1d/520a36] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT (CSU17060)
+Jul-08 17:25:51.443 [Actor Thread 1522] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/tabix:1.11--hdfd78af_0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-tabix-1.11--hdfd78af_0.img
+Jul-08 17:25:51.453 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:51.453 [Task submitter] INFO  nextflow.Session - [cc/e9d614] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX (CSU17035)
+Jul-08 17:25:51.837 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 54; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:BCFTOOLS_SORT (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/1d/520a3605f8924c212cfe417d370ea7]
+Jul-08 17:25:51.841 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:51.841 [Task submitter] INFO  nextflow.Session - [9a/d61426] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN (CSU17035)
+Jul-08 17:25:51.851 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:51.851 [Task submitter] INFO  nextflow.Session - [ef/d73261] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX (CSU17060)
+Jul-08 17:25:51.970 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 55; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/cc/e9d6146b7172b7806339a502e0a096]
+Jul-08 17:25:51.974 [TaskFinalizer-54] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:52.148 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 58; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/ef/d7326187eb49e0fd55a23463163d55]
+Jul-08 17:25:52.152 [TaskFinalizer-55] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:TABIX_TABIX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:52.199 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:52.200 [Task submitter] INFO  nextflow.Session - [f5/795b4d] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17035)
+Jul-08 17:25:52.207 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:52.207 [Task submitter] INFO  nextflow.Session - [44/ae7363] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17060)
+Jul-08 17:25:52.634 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 60; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/f5/795b4df4d96a06758e18d6cb21b2f1]
+Jul-08 17:25:52.649 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 61; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/44/ae736317b3ce419fc79cb676a1e01b]
+Jul-08 17:25:52.649 [Actor Thread 1605] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-093691b47d719890dc19ac0c13c4528e9776897f:27211b8c38006480d69eb1be3ef09a7bf0a49d76-0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mulled-v2-093691b47d719890dc19ac0c13c4528e9776897f-27211b8c38006480d69eb1be3ef09a7bf0a49d76-0.img
+Jul-08 17:25:54.137 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 52; name: NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME; status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/e9/5e34711ae4d738c71617e4cd78842a]
+Jul-08 17:25:54.141 [TaskFinalizer-58] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<2>
+Jul-08 17:25:54.142 [TaskFinalizer-58] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:PLOT_MOSDEPTH_REGIONS_GENOME > Skipping output binding because one or more optional files are missing: fileoutparam<3>
+Jul-08 17:25:54.142 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:54.143 [Task submitter] INFO  nextflow.Session - [d0/ff0d1c] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN (CSU17060)
+Jul-08 17:25:55.850 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 56; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/9a/d61426235507503574ca9e0009728f]
+Jul-08 17:25:55.868 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:55.868 [Task submitter] INFO  nextflow.Session - [d5/3bc596] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035)
+Jul-08 17:25:56.324 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 59; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/d5/3bc596ad5084c756fa50c344c60bbf]
+Jul-08 17:25:56.329 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:56.330 [Task submitter] INFO  nextflow.Session - [37/45f384] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17060)
+Jul-08 17:25:56.335 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:56.336 [Task submitter] INFO  nextflow.Session - [b4/7727e7] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17035)
+Jul-08 17:25:56.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 65; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/b4/7727e757da3c6cf75ec67b57e7606a]
+Jul-08 17:25:56.632 [TaskFinalizer-61] DEBUG nextflow.processor.TaskProcessor - Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17035)` is unable to find [UnixPath]: `/scratch/alpine/rtk24@colostate.edu/b4/7727e757da3c6cf75ec67b57e7606a/CSU17035.snpeff.vcf.gz.gzi` (pattern: `CSU17035.snpeff.vcf.gz.gzi`)
+Jul-08 17:25:56.634 [TaskFinalizer-61] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:56.640 [Actor Thread 1688] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/snpsift:4.3.1t--hdfd78af_3; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-snpsift-4.3.1t--hdfd78af_3.img
+Jul-08 17:25:56.754 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 62; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:BCFTOOLS_QUERY (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/37/45f384a14e8eb73868d3465867ab2c]
+Jul-08 17:25:56.761 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:56.761 [Task submitter] INFO  nextflow.Session - [2b/a8d0de] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME (CSU17035)
+Jul-08 17:25:56.766 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:56.766 [Task submitter] INFO  nextflow.Session - [94/f37462] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX (CSU17035)
+Jul-08 17:25:57.056 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 66; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/94/f37462197f63463f0cebfd2f7ce828]
+Jul-08 17:25:57.059 [TaskFinalizer-63] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:57.870 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 57; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPEFF_ANN (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/d0/ff0d1cb7a3ffac3891ae8fa4cf0789]
+Jul-08 17:25:57.875 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:57.875 [Task submitter] INFO  nextflow.Session - [7d/c70b04] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME (CSU17060)
+Jul-08 17:25:57.880 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:57.880 [Task submitter] INFO  nextflow.Session - [a4/205846] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17035)
+Jul-08 17:25:58.297 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 68; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/a4/205846d50326b419bbb4fb6ac7509f]
+Jul-08 17:25:58.304 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:58.304 [Task submitter] INFO  nextflow.Session - [01/f8d955] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17060)
+Jul-08 17:25:58.613 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 69; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/01/f8d95530c575d2b57917fec2fccbd8]
+Jul-08 17:25:58.614 [TaskFinalizer-66] DEBUG nextflow.processor.TaskProcessor - Process `NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP (CSU17060)` is unable to find [UnixPath]: `/scratch/alpine/rtk24@colostate.edu/01/f8d95530c575d2b57917fec2fccbd8/CSU17060.snpeff.vcf.gz.gzi` (pattern: `CSU17060.snpeff.vcf.gz.gzi`)
+Jul-08 17:25:58.615 [TaskFinalizer-66] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:TABIX_BGZIP > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:25:59.618 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:25:59.618 [Task submitter] INFO  nextflow.Session - [7b/ad547f] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX (CSU17060)
+Jul-08 17:25:59.937 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 71; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/7b/ad547f7c2410faf68a998c394fd35e]
+Jul-08 17:25:59.940 [TaskFinalizer-67] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:TABIX_TABIX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Jul-08 17:26:00.943 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:26:00.943 [Task submitter] INFO  nextflow.Session - [66/07cc82] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17060)
+Jul-08 17:26:01.387 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 72; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:VCF_BGZIP_TABIX_STATS:VCF_TABIX_STATS:BCFTOOLS_STATS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/66/07cc825ab624ef170256d76fa318c2]
+Jul-08 17:26:56.465 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 64; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/7d/c70b049ee08d48b3ef08b55538088e]
+Jul-08 17:26:56.471 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:26:56.472 [Task submitter] INFO  nextflow.Session - [84/a37d03] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS (CSU17035)
+Jul-08 17:26:56.486 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 63; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:ASCIIGENOME (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/2b/a8d0de5bf55d7df47f4e30f9eaf1d6]
+Jul-08 17:26:56.490 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:26:56.491 [Task submitter] INFO  nextflow.Session - [1c/b804cc] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS (CSU17060)
+Jul-08 17:26:59.116 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 70; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS (CSU17060); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/1c/b804ccf42675a679cd9841c918b233]
+Jul-08 17:26:59.151 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 67; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_IVAR:VARIANTS_QC:SNPEFF_SNPSIFT:SNPSIFT_EXTRACTFIELDS (CSU17035); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/84/a37d03a60508292ed316e4690d4910]
+Jul-08 17:26:59.160 [Actor Thread 1820] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-77320db00eefbbf8c599692102c3d387a37ef02a:08144a66f00dc7684fad061f1466033c0176e7ad-0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-mulled-v2-77320db00eefbbf8c599692102c3d387a37ef02a-08144a66f00dc7684fad061f1466033c0176e7ad-0.img
+Jul-08 17:26:59.162 [Actor Thread 1818] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/make_variants_long_table.py
+Jul-08 17:26:59.184 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:26:59.184 [Task submitter] INFO  nextflow.Session - [45/75eff0] Submitted process > NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:MAKE_VARIANTS_LONG_TABLE
+Jul-08 17:27:04.474 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 73; name: NFCORE_VIRALRECON:ILLUMINA:VARIANTS_LONG_TABLE:MAKE_VARIANTS_LONG_TABLE; status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/45/75eff0f14f092f69018789fd5fca7b]
+Jul-08 17:27:04.508 [Actor Thread 1825] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 46; slices: 1; internal sort time: 0.026 s; external sort time: 0.003 s; total time: 0.029 s
+Jul-08 17:27:04.508 [Actor Thread 1825] DEBUG nextflow.file.FileCollector - >> temp file exists? false
+Jul-08 17:27:04.508 [Actor Thread 1825] DEBUG nextflow.file.FileCollector - Missed collect-file cache -- cause: java.nio.file.NoSuchFileException: /scratch/alpine/rtk24@colostate.edu/collect-file/a98333e5cd3270d296c8e274a6ae5711
+Jul-08 17:27:04.526 [Actor Thread 1825] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /scratch/alpine/rtk24@colostate.edu/collect-file/a98333e5cd3270d296c8e274a6ae5711
+Jul-08 17:27:04.530 [Actor Thread 1825] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /scratch/alpine/rtk24@colostate.edu/nxf-13409953912394095163
+Jul-08 17:27:04.569 [Actor Thread 1833] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/multiqc:1.14--pyhdfd78af_0; path=/scratch/alpine/rtk24@colostate.edu/.singularity_cache/depot.galaxyproject.org-singularity-multiqc-1.14--pyhdfd78af_0.img
+Jul-08 17:27:04.589 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:27:04.590 [Task submitter] INFO  nextflow.Session - [3e/1336a8] Submitted process > NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS (1)
+Jul-08 17:27:05.435 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 74; name: NFCORE_VIRALRECON:ILLUMINA:CUSTOM_DUMPSOFTWAREVERSIONS (1); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/3e/1336a8ddb1820847e894b2d78d77dd]
+Jul-08 17:27:05.452 [Actor Thread 1841] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/assets/multiqc_config_illumina.yml
+Jul-08 17:27:05.465 [Actor Thread 1841] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/bin/multiqc_to_custom_csv.py
+Jul-08 17:27:05.502 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-08 17:27:05.502 [Task submitter] INFO  nextflow.Session - [7a/c00993] Submitted process > NFCORE_VIRALRECON:ILLUMINA:MULTIQC (1)
+Jul-08 17:27:16.037 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 75; name: NFCORE_VIRALRECON:ILLUMINA:MULTIQC (1); status: COMPLETED; exit: 0; error: -; workDir: /scratch/alpine/rtk24@colostate.edu/7a/c00993e9273e7fb8fdda9c034bfaf4]
+Jul-08 17:27:16.046 [TaskFinalizer-75] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MULTIQC > Skipping output binding because one or more optional files are missing: fileoutparam<3>
+Jul-08 17:27:16.046 [TaskFinalizer-75] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_VIRALRECON:ILLUMINA:MULTIQC > Skipping output binding because one or more optional files are missing: fileoutparam<4>
+Jul-08 17:27:16.053 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-08 17:27:16.138 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Jul-08 17:27:16.138 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-08 17:27:16.142 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-08 17:27:16.142 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-08 17:27:16.145 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/viralrecon][0;32m 2/2 samples passed Bowtie2 1000 mapped read threshold:
+    5700: CSU17035
+    18572: CSU17060
+[0m-
+Jul-08 17:27:16.146 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/viralrecon][0;32m Pipeline completed successfully[0m-
+Jul-08 17:27:16.149 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=75; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=19m 54s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=6; peakCpus=20; peakMemory=120 GB; ]
+Jul-08 17:27:16.149 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-08 17:27:16.150 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-08 17:27:16.748 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-08 17:27:16.921 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-08 17:27:17.309 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@2.5.3'
+Jul-08 17:27:17.309 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Jul-08 17:27:17.310 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-08 17:27:17.310 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

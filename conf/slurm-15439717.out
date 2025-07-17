@@ -1,0 +1,2 @@
+slurmstepd: error: *** JOB 15439717 ON c3cpu-c15-u3-1 CANCELLED AT 2025-07-08T14:50:00 ***
+slurmstepd: error: run_script_as_user: couldn't change working dir to /projects/rtk24@colostate.edu/proj_bioinformatics/nextflow_pipelines/viralrecon/conf: No such file or directory

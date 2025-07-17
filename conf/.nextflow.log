@@ -1,0 +1,24 @@
+Jul-08 16:50:19.462 [main] DEBUG nextflow.cli.Launcher - $> nextflow run viralrecon -r 2.6.0 -profile singularity -c conf/wnv.config -params-file assets/wnv_params.yaml --input input/wnv_kapa_test.csv --outdir wnv-s_21-22 --genome WNV_REF -resume
+Jul-08 16:50:19.552 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
+Jul-08 16:50:19.662 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/scratch/alpine/rtk24@colostate.edu/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
+Jul-08 16:50:19.685 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-08 16:50:19.686 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-08 16:50:19.688 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-08 16:50:19.705 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-08 16:50:19.724 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /scratch/alpine/rtk24@colostate.edu/scm
+Jul-08 16:50:19.732 [main] DEBUG nextflow.scm.AssetManager - Listing projects in folder: /scratch/alpine/rtk24@colostate.edu/assets
+Jul-08 16:50:20.550 [main] DEBUG nextflow.scm.AssetManager - Git config: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/viralrecon.git
+Jul-08 16:50:20.581 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Jul-08 16:50:20.590 [main] DEBUG nextflow.scm.AssetManager - Git config: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/viralrecon.git
+Jul-08 16:50:21.640 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /scratch/alpine/rtk24@colostate.edu/assets/nf-core/viralrecon/nextflow.config
+Jul-08 16:50:21.652 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: The specified configuration file does not exist: /projects/rtk24@colostate.edu/proj_bioinformatics/pipeline_viralrecon_NF/viralrecon/conf/conf/wnv.config -- check the name or choose another file
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.validateConfigFiles(ConfigBuilder.groovy:249)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildConfigObject(ConfigBuilder.groovy:813)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.build(ConfigBuilder.groovy:827)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:328)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:657)
